@@ -1,0 +1,33 @@
+body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            margin:40px;
+            background: gainsboro;
+        }
+
+nav{
+
+    padding: 10px;
+     margin:20px;
+
+        }
+
+nav a{
+            text-decoration:none;
+            margin:15px;
+            color:white;
+            background:#0077cc;
+            padding:10px 20px;
+            border-radius:5px;
+        }
+
+nav a:hover{
+            background:#005fa3;
+        }
+ 
+
+
+
+h1{
+    text-align:center;
+}
