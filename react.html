@@ -5,22 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="estilo.css">
 
-    
-<link rel="stylesheet" href="estilo.css">
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 
 </head>
 <body>
     
 
 <nav>
-
-<a href="index.html">Inicio</a>
-
-
+  <a href="index.html">Inicio</a> 
 </nav>
 
-<h1>Ejercicio de React</h1>
+
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { useState } = React;
+
+function App(){
+
+const [personas,setPersonas]=useState([]);
+
+const [formulario,setFormulario]=useState({
+nombre:"",
+apellido:"",
+edad:"",
+altura:"",
+peso:""
+});
+
+function cambiar(e){
+
+setFormulario({
+...formulario,
+[e.target.name]:e.target.value
+});
+
+}
+
+function agregarPersona(e){
+
+e.preventDefault();
+
+const altura=parseFloat(formulario.altura);
+const peso=parseFloat(formulario.peso);
+
+const imc=(peso/(altura*altura)).toFixed(2);
+
+const nuevaPersona={
+...formulario,
+imc
+};
+
+setPersonas([...personas,nuevaPersona]);
+
+setFormulario({
+nombre:"",
+apellido:"",
+edad:"",
+altura:"",
+peso:""
+});
+
+}
+
+return(
+
+<div>
+
+<h1>Registro de Personas con React</h1>
+
+<form onSubmit={agregarPersona}>
+
+<input
+name="nombre"
+placeholder="Nombre"
+value={formulario.nombre}
+onChange={cambiar}
+required
+/>
+
+<input
+name="apellido"
+placeholder="Apellido"
+value={formulario.apellido}
+onChange={cambiar}
+required
+/>
+
+<input
+type="number"
+name="edad"
+placeholder="Edad"
+value={formulario.edad}
+onChange={cambiar}
+required
+/>
+
+<input
+type="number"
+step="0.01"
+name="altura"
+placeholder="Altura (metros)"
+value={formulario.altura}
+onChange={cambiar}
+required
+/>
+
+<input
+type="number"
+step="0.1"
+name="peso"
+placeholder="Peso (kg)"
+value={formulario.peso}
+onChange={cambiar}
+required
+/>
+
+<button type="submit">
+Agregar Persona
+</button>
+
+</form>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Edad</th>
+<th>Altura</th>
+<th>Peso</th>
+<th>IMC</th>
+<th>Acción</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{personas.map((persona,index)=>(
+
+<tr key={index}>
+
+<td>{persona.nombre}</td>
+<td>{persona.apellido}</td>
+<td>{persona.edad}</td>
+<td>{persona.altura}</td>
+<td>{persona.peso}</td>
+<td>{persona.imc}</td>
+
+<td>
+
+<button onClick={()=>eliminarPersona(index)}>
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+))}
+
+</tbody>
+
+</table>
+
+</div>
+
+);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+</script>
+
 
 </body>
 </html>
