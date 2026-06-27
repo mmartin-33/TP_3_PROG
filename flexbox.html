@@ -36,8 +36,7 @@
 
     <div id="contenedor"></div>
 
-    
-  <script>
+ <script>
 
     let cursos = [
     "HTML",
@@ -48,7 +47,7 @@
     "C++"
     ];
 
-  
+
     let cursosOriginales = [...cursos];
 
     function mostrarCursos(lista){
@@ -70,11 +69,39 @@
 
 }
 
+    function ordenarCursos(){
 
+        cursos.sort();
+
+     mostrarCursos(cursos);
+
+    }
+
+    function mostrarFrontEnd(){
+
+    let frontEnd = cursos.filter(curso =>
+        curso == "HTML" ||
+        curso == "CSS" ||
+        curso == "JavaScript" ||
+        curso == "React"
+    );
+
+    mostrarCursos(frontEnd);
+
+}
+
+    function mostrarTodos(){
+
+    cursos = [...cursosOriginales];
+
+    mostrarCursos(cursos);
+
+}
 
 mostrarCursos(cursos);
 
 </script>
+
 
 </body>
 </html>
