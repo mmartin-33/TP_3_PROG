@@ -57,5 +57,85 @@
 </tbody>
 
 </table>
+
+
+
+<script>
+
+let personas=[];
+
+document.getElementById("formulario").addEventListener("submit",agregarPersona);
+
+function agregarPersona(event){
+
+event.preventDefault();
+
+let nombre=document.getElementById("nombre").value;
+let apellido=document.getElementById("apellido").value;
+let edad=document.getElementById("edad").value;
+let altura=parseFloat(document.getElementById("altura").value);
+let peso=parseFloat(document.getElementById("peso").value);
+
+let imc=(peso/(altura*altura)).toFixed(2);
+
+let persona={
+nombre,
+apellido,
+edad,
+altura,
+peso,
+imc
+};
+
+personas.push(persona);
+
+mostrarPersonas();
+
+document.getElementById("formulario").reset();
+
+}
+
+function mostrarPersonas(){
+
+let tabla=document.getElementById("tablaPersonas");
+
+tabla.innerHTML="";
+
+for(let i=0;i<personas.length;i++){
+
+tabla.innerHTML+=`
+
+<tr>
+
+<td>${personas[i].nombre}</td>
+
+<td>${personas[i].apellido}</td>
+
+<td>${personas[i].edad}</td>
+
+<td>${personas[i].altura}</td>
+
+<td>${personas[i].peso}</td>
+
+<td>${personas[i].imc}</td>
+
+<td>
+
+<button onclick="eliminarPersona(${i})">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+}
+
+</script>
+
 </body>
 </html>
