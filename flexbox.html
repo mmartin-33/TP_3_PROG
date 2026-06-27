@@ -36,6 +36,45 @@
 
     <div id="contenedor"></div>
 
+    
+  <script>
+
+    let cursos = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Python",
+    "C++"
+    ];
+
+  
+    let cursosOriginales = [...cursos];
+
+    function mostrarCursos(lista){
+
+        let contenedor = document.getElementById("contenedor");
+
+        contenedor.innerHTML = "";
+
+        for(let curso of lista){
+
+        contenedor.innerHTML += `
+        <div class="tarjeta">
+            <h2>${curso}</h2>
+            <p>Curso de ${curso}</p>
+        </div>
+        `;
+
+    }
+
+}
+
+
+
+mostrarCursos(cursos);
+
+</script>
 
 </body>
 </html>

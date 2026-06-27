@@ -34,9 +34,35 @@ h1{
     color: #0077cc;
 }
 
-h2 {
-text-align: center;
 
 
+button{
+    display:inline-flex;
+    margin:20px 10px;
+    padding:10px 20px;
+    cursor: pointer;
+    
+}
+
+#contenedor{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.tarjeta{
+    width:220px;
+    background:white;
+    border:1px solid gray;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+}        
+
+.tarjeta:hover{
+
+background-color: antiquewhite;
 
 }
+
