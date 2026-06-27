@@ -13,14 +13,49 @@
 </head>
 <body>
     
-<nav>
-
-<a href="index.html">Inicio</a>
-
-
+ <nav>
+    <a href="index.html">Inicio</a>
 </nav>
 
-<h1>Ejercicio de personas</h1>
 
+<h1>Registro de Personas</h1>
+
+<form id="formulario">
+
+<input type="text" id="nombre" placeholder="Nombre" required>
+
+<input type="text" id="apellido" placeholder="Apellido" required>
+
+<input type="number" id="edad" placeholder="Edad" required>
+
+<input type="number" id="altura" placeholder="Altura (metros)" step="0.01" required>
+
+<input type="number" id="peso" placeholder="Peso (kg)" step="0.1" required>
+
+<button type="submit">Agregar Persona</button>
+
+</form>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Edad</th>
+<th>Altura</th>
+<th>Peso</th>
+<th>IMC</th>
+<th>Acción</th>
+</tr>
+
+</thead>
+
+<tbody id="tablaPersonas">
+
+</tbody>
+
+</table>
 </body>
 </html>
