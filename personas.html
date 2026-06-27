@@ -95,6 +95,7 @@ document.getElementById("formulario").reset();
 
 }
 
+
 function mostrarPersonas(){
 
 let tabla=document.getElementById("tablaPersonas");
@@ -134,6 +135,15 @@ Eliminar
 }
 
 }
+
+function eliminarPersona(indice){
+
+personas.splice(indice,1);
+
+mostrarPersonas();
+
+}
+
 
 </script>
 
